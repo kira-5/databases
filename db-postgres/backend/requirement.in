@@ -1,0 +1,8 @@
+pip-tools
+flake8
+autopep8
+
+psycopg2
+pandas
+google-cloud-bigquery
+Flask-SQLAlchemy
