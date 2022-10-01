@@ -1,7 +1,7 @@
 """SQL QUERRIES"""
 CREATE_TABLE = (
     """
-        CREATE TABLE EmployeeInfo(
+        CREATE TABLE employee_info(
             EmpID INT NOT NULL,
             EmpFname VARCHAR(255),
             EmpLname VARCHAR(255),
@@ -23,8 +23,10 @@ CREATE_TABLE = (
 
 INSERT_DATA = (
     """
-        INSERT INTO EmployeeInfo \
+        INSERT INTO employee_info \
     (EmpID, EmpFname, EmpLname, Department, Address, Gender) \
     VALUES {}
     """
 )
+
+SELECT_ALL = ("select * from {}")

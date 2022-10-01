@@ -1,27 +1,25 @@
-""" create tables in the PostgreSQL database"""
 import psycopg2 as ps
-from db_conn import connect
+from utils.db_conn import postgres_connect
 from utils import queries
 
 
 def create_tables():
     """ create tables in the PostgreSQL database"""
     query = queries.CREATE_TABLE
-    conn = None
+    db_conn = None
     try:
-        conn = connect()
-        cur = conn.cursor()
+        db_conn = postgres_connect()
+        cur = db_conn.cursor()
 
         for command in query:
             cur.execute(command)
-        print('Table Created!')
 
         cur.close()
-        conn.commit()
+        db_conn.commit()
     except (Exception, ps.DatabaseError) as error:
         print(error)
     finally:
-        if conn is not None:
-            conn.close()
+        if db_conn is not None:
+            db_conn.close()
 
     return
